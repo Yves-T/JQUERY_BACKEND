@@ -5,7 +5,7 @@ var config = require('./../config.json')[process.env.NODE_ENV || 'dev'];
 
 /* GET home page. */
 router.get('/' + config.api.urlPrefix, function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: 'Backend jQuery eindwerk'});
 });
 
 /* Handle form */

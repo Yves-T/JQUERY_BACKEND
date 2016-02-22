@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var config = require('./../config.json')[process.env.NODE_ENV || 'dev'];
 
 /* GET home page. */
-router.get('/app2', function (req, res, next) {
+router.get('/' + config.api.urlPrefix, function (req, res, next) {
     res.render('index', {title: 'Express'});
 });
 
 /* Handle form */
-router.post('/app2/userForm', function (req, res, next) {
+router.post('/' + config.api.urlPrefix + 'userForm', function (req, res, next) {
     var email = req.body.email;
 
     sendEmail(email).then(() => {

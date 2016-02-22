@@ -1,7 +1,8 @@
 {
   "dev": {
     "api": {
-      "server": "http://localhost:3000"
+      "server": "http://localhost:3000",
+      "urlPrefix" : ""
     },
     "db": {
       "dbUri": "mongodb://localhost/Loc8r"
@@ -12,7 +13,8 @@
   },
   "production": {
     "api": {
-      "server": "http://localhost:8081"
+      "server": "http://localhost:8081",
+      "urlPrefix" : "eindwerk/"
     },
     "db": {
       "dbUri": "mongodb://localhost/Loc8r"

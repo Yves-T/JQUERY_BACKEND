@@ -3,12 +3,12 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/app2', function (req, res, next) {
     res.render('index', {title: 'Express'});
 });
 
 /* Handle form */
-router.post('/userForm', function (req, res, next) {
+router.post('/app2/userForm', function (req, res, next) {
     var email = req.body.email;
 
     sendEmail(email).then(() => {

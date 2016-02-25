@@ -23,7 +23,7 @@ router.post('/' + config.api.urlPrefix + 'userForm', function (req, res, next) {
 });
 
 // handle fake persons
-router.route("/person").get(function (req, res) {
+router.get("/" + config.api.urlPrefix + "person", function (req, res) {
 
     var response = [];
     var i = 4;

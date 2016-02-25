@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var faker = require('faker');
 var config = require('./../config.json')[process.env.NODE_ENV || 'dev'];
 
 /* GET home page. */
@@ -21,6 +22,28 @@ router.post('/' + config.api.urlPrefix + 'userForm', function (req, res, next) {
     });
 });
 
+// handle fake persons
+router.route("/person").get(function (req, res) {
+
+    var response = [];
+    var i = 4;
+    while (i--) {
+        response.push(createRandomUser());
+    }
+
+    res.json(response);
+});
+
+function createRandomUser() {
+    return {
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        address: faker.address.streetAddress(),
+        city: faker.address.city(),
+        lorem: faker.lorem.sentence(),
+        image: faker.image.avatar()
+    };
+}
 
 function sendEmail(email) {
     var transportUri = 'smtps://' + process.env.GOOGLE_USER + ':' + process.env.GOOGLE_PASSWORD + '@smtp.gmail.com';

@@ -54,8 +54,9 @@ function sendEmail(email) {
             from: '"Yves Talboom"' + process.env.GOOGLE_USER, // sender address
             to: email, // list of receivers
             subject: 'Hello ✔', // Subject line
-            text: 'Hello world 🐴', // plaintext body
-            html: '<b>Hello world 🐴</b>' // html body
+            text: 'Thanks for contacting us 🐴', // plaintext body
+            html: '<b>Hello 🐴</b><p>Thanks for contacting us. Currently I am on vacation' +
+            ' (Recovering from jQuery course ).Hoping to win the lottery and never return</p>' // html body
         };
 
         // send mail with defined transport object
